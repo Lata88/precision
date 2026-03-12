@@ -3,30 +3,73 @@ import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowRight, Settings, Activity, ShieldCheck, ChevronRight } from "lucide-react";
-import { Button, Card } from "@/components/ui";
+import { ArrowRight, Settings, Activity, ShieldCheck, ChevronRight, CheckCircle, Phone } from "lucide-react";
+import { useListMachines } from "@workspace/api-client-react";
 
 const slides = [
   {
     image: `${import.meta.env.BASE_URL}images/hero-1.png`,
     title: "Precision Without Compromise",
     subtitle: "Advanced CNC Machinery for Modern Manufacturing",
+    tag: "Industry Leaders",
   },
   {
     image: `${import.meta.env.BASE_URL}images/hero-2.png`,
     title: "Industrial Grade Tools",
     subtitle: "Engineered for Durability and Extreme Accuracy",
+    tag: "Premium Tooling",
   },
   {
     image: `${import.meta.env.BASE_URL}images/hero-3.png`,
     title: "Expert Servicing & Maintenance",
     subtitle: "Minimizing Downtime, Maximizing Productivity",
-  }
+    tag: "Certified Service",
+  },
+];
+
+const features = [
+  "25+ Years of Industry Experience",
+  "Certified CNC Engineers",
+  "24/7 Emergency Support",
+  "Global Parts Sourcing",
+];
+
+const services = [
+  {
+    icon: Settings,
+    title: "Equipment Sales",
+    desc: "Premium multi-axis CNC milling and turning centers sourced from world-class manufacturers.",
+    href: "/machines",
+    cta: "View Catalog",
+  },
+  {
+    icon: Activity,
+    title: "Precision Repair",
+    desc: "Expert spindle rebuilding, ball screw repair, and electronics troubleshooting to minimize downtime.",
+    href: "/services",
+    cta: "Our Services",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Preventive Maintenance",
+    desc: "Scheduled calibration, laser alignment, and comprehensive diagnostics to extend machine life.",
+    href: "/services",
+    cta: "Learn More",
+  },
+];
+
+const stats = [
+  { value: "25+", label: "Years Experience" },
+  { value: "500+", label: "Machines Installed" },
+  { value: "1200+", label: "Happy Clients" },
+  { value: "48h", label: "Response Time" },
 ];
 
 export default function Home() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const { data: machines } = useListMachines();
+  const featuredMachines = machines?.filter((m) => m.featured).slice(0, 3) ?? [];
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -41,56 +84,49 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Slider */}
-      <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden bg-background">
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-transparent to-transparent" />
-        
+      {/* ── Hero Slider ── */}
+      <section className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
         <div className="overflow-hidden h-full" ref={emblaRef}>
           <div className="flex h-full">
-            {slides.map((slide, index) => (
-              <div key={index} className="flex-[0_0_100%] min-w-0 relative h-full">
-                <img 
-                  src={slide.image} 
-                  alt={slide.title} 
-                  className="absolute block w-full h-full object-cover object-center opacity-60" 
-                />
+            {slides.map((slide, i) => (
+              <div key={i} className="flex-[0_0_100%] min-w-0 relative h-full">
+                <img src={slide.image} alt={slide.title} className="absolute w-full h-full object-cover object-center" />
+                <div className="absolute inset-0 bg-navy/70" />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="absolute inset-0 z-20 flex items-center">
+        <div className="absolute inset-0 flex items-center z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
                 className="max-w-2xl"
               >
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-12 h-1 bg-primary" />
-                  <span className="text-primary font-bold uppercase tracking-widest text-sm">Industrial Excellence</span>
-                </div>
-                <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-[1.1] mb-6 drop-shadow-2xl">
+                <span className="inline-block bg-primary text-white text-xs font-bold uppercase tracking-widest px-3 py-1 mb-5">
+                  {slides[selectedIndex].tag}
+                </span>
+                <h1 className="text-5xl md:text-6xl font-display font-bold text-white leading-tight mb-5">
                   {slides[selectedIndex].title}
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground mb-8">
+                <p className="text-lg text-white/75 mb-8 leading-relaxed">
                   {slides[selectedIndex].subtitle}
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/machines">
-                    <Button size="lg" className="w-full sm:w-auto">
-                      Explore Machines <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
+                    <button className="btn-orange rounded-sm flex items-center gap-2 text-sm uppercase tracking-wide font-bold">
+                      Explore Machines <ArrowRight className="w-4 h-4" />
+                    </button>
                   </Link>
                   <Link href="/contact">
-                    <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                      Request Consultation
-                    </Button>
+                    <button className="px-6 py-3 border-2 border-white text-white text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-navy transition-colors rounded-sm">
+                      Get a Quote
+                    </button>
                   </Link>
                 </div>
               </motion.div>
@@ -98,106 +134,166 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
+        {/* Slide dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
-              className={`w-16 h-1 transition-all duration-300 ${i === selectedIndex ? 'bg-primary' : 'bg-white/20 hover:bg-white/50'}`}
               onClick={() => emblaApi?.scrollTo(i)}
+              className={`transition-all duration-300 rounded-full ${i === selectedIndex ? "w-8 h-2 bg-primary" : "w-2 h-2 bg-white/40 hover:bg-white/70"}`}
             />
           ))}
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="py-24 bg-card relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── Stats Bar ── */}
+      <section className="bg-primary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+            {stats.map((s) => (
+              <div key={s.label} className="py-2">
+                <div className="text-3xl font-display font-bold">{s.value}</div>
+                <div className="text-xs font-semibold uppercase tracking-wider mt-1 text-white/75">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── About / Intro ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">Empowering Manufacturing with Cutting-Edge Technology</h2>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <span className="text-primary font-bold text-sm uppercase tracking-widest">Who We Are</span>
+              <h2 className="font-display font-bold text-4xl text-navy mt-2 mb-5 leading-snug">
+                Empowering Manufacturing with Cutting-Edge Technology
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 For over two decades, CNC Solutions has been at the forefront of industrial machining. We provide state-of-the-art CNC equipment, precision tools, and unparalleled technical support to manufacturers globally.
               </p>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed mb-8">
                 Whether you are upgrading your facility or need urgent spindle repairs, our expert engineers ensure your production lines never stop.
               </p>
+              <ul className="space-y-3 mb-8">
+                {features.map((f) => (
+                  <li key={f} className="flex items-center gap-3 text-sm font-medium text-navy">
+                    <CheckCircle className="w-4 h-4 text-primary shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
               <Link href="/about">
-                <Button variant="outline" className="group">
-                  Learn More About Us <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <button className="btn-navy rounded-sm flex items-center gap-2 text-sm uppercase tracking-wide font-bold">
+                  About Us <ChevronRight className="w-4 h-4" />
+                </button>
               </Link>
             </div>
             <div className="relative">
-              <img src={`${import.meta.env.BASE_URL}images/workshop.png`} alt="Workshop" className="rounded-lg shadow-2xl box-glow" />
-              <div className="absolute -bottom-8 -left-8 bg-background p-6 rounded-lg border border-border shadow-xl">
-                <div className="text-5xl font-display font-bold text-primary mb-2">25+</div>
-                <div className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Years of Excellence</div>
+              <img
+                src={`${import.meta.env.BASE_URL}images/workshop.png`}
+                alt="Workshop"
+                className="rounded-sm shadow-xl w-full object-cover"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-navy text-white p-5 rounded-sm shadow-xl">
+                <div className="text-4xl font-display font-bold text-primary">25+</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-white/70 mt-1">Years of Excellence</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Services */}
-      <section className="py-24 bg-background">
+      {/* ── Services ── */}
+      <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Our Core Capabilities</h2>
-            <p className="text-muted-foreground">Comprehensive solutions tailored to meet the rigorous demands of modern manufacturing facilities.</p>
+          <div className="text-center mb-14">
+            <span className="text-primary font-bold text-sm uppercase tracking-widest">What We Do</span>
+            <h2 className="font-display font-bold text-4xl text-navy mt-2">Our Core Capabilities</h2>
+            <div className="w-16 h-1 bg-primary mx-auto mt-4" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="p-8 group hover:-translate-y-2">
-              <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <Settings className="w-8 h-8 text-primary" />
+            {services.map((s) => (
+              <div key={s.title} className="bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow p-8 group border border-border card-hover">
+                <div className="w-14 h-14 bg-primary/10 rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                  <s.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-navy mb-3">{s.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{s.desc}</p>
+                <Link href={s.href} className="text-primary font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
+                  {s.cta} <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <h3 className="text-xl font-bold mb-4">Equipment Sales</h3>
-              <p className="text-muted-foreground mb-6">Premium multi-axis CNC milling and turning centers sourced from world-class manufacturers.</p>
-              <Link href="/machines" className="text-primary font-bold text-sm uppercase tracking-wider flex items-center hover:text-white transition-colors">
-                View Catalog <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Card>
-
-            <Card className="p-8 group hover:-translate-y-2">
-              <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <Activity className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Precision Repair</h3>
-              <p className="text-muted-foreground mb-6">Expert spindle rebuilding, ball screw repair, and electronics troubleshooting to minimize downtime.</p>
-              <Link href="/services" className="text-primary font-bold text-sm uppercase tracking-wider flex items-center hover:text-white transition-colors">
-                Explore Services <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Card>
-
-            <Card className="p-8 group hover:-translate-y-2">
-              <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <ShieldCheck className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Preventive Maintenance</h3>
-              <p className="text-muted-foreground mb-6">Scheduled calibration, laser alignment, and comprehensive diagnostics to extend machine life.</p>
-              <Link href="/services" className="text-primary font-bold text-sm uppercase tracking-wider flex items-center hover:text-white transition-colors">
-                Learn More <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-card relative overflow-hidden border-y border-border">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=1920&q=80')] opacity-5 mix-blend-overlay bg-cover bg-center" />
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Ready to Optimize Your Production?</h2>
-          <p className="text-xl text-muted-foreground mb-10">
-            Contact our engineering team today for a custom quote on machines, tooling, or servicing.
-          </p>
-          <Link href="/contact">
-            <Button size="lg" className="w-full sm:w-auto">
-              Contact Us Today
-            </Button>
-          </Link>
+      {/* ── Featured Machines ── */}
+      {featuredMachines.length > 0 && (
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-end mb-12">
+              <div>
+                <span className="text-primary font-bold text-sm uppercase tracking-widest">Products</span>
+                <h2 className="font-display font-bold text-4xl text-navy mt-2">Featured Machines</h2>
+                <div className="w-16 h-1 bg-primary mt-4" />
+              </div>
+              <Link href="/machines">
+                <button className="btn-navy rounded-sm flex items-center gap-2 text-sm uppercase tracking-wide font-bold hidden md:flex">
+                  View All <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {featuredMachines.map((m) => (
+                <div key={m.id} className="bg-white rounded-sm border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow card-hover">
+                  <div className="h-52 overflow-hidden bg-muted">
+                    {m.imageUrl ? (
+                      <img src={m.imageUrl} alt={m.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                        <Settings className="w-12 h-12 opacity-30" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <span className="text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded">{m.category}</span>
+                    <h3 className="font-display font-bold text-lg text-navy mt-3 mb-2">{m.name}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">{m.description}</p>
+                    <Link href="/machines" className="mt-4 flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                      View Details <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── CTA Banner ── */}
+      <section className="bg-navy py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-white leading-snug">
+              Ready to Optimize Your Production?
+            </h2>
+            <p className="text-white/60 mt-2">Contact our engineering team for a custom quote.</p>
+          </div>
+          <div className="flex flex-wrap gap-4 shrink-0">
+            <Link href="/contact">
+              <button className="btn-orange rounded-sm flex items-center gap-2 text-sm uppercase tracking-wide font-bold">
+                Get a Quote <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+            <a href="tel:+15551234567">
+              <button className="px-6 py-3 border-2 border-white text-white text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-navy transition-colors rounded-sm flex items-center gap-2">
+                <Phone className="w-4 h-4" /> Call Us Now
+              </button>
+            </a>
+          </div>
         </div>
       </section>
     </div>
