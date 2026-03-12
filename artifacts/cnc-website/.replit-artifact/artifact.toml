@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "CNC Machine Tools & Services"
+version = "1.0.0"
+id = "artifacts/cnc-website"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 22177
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/cnc-website run dev"
+
+[services.env]
+PORT = "22177"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/cnc-website", "run", "build"]
+publicDir = "artifacts/cnc-website/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"

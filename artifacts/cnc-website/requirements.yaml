@@ -1,0 +1,26 @@
+packages:
+  "framer-motion": "For smooth page transitions, reveals, and scroll animations"
+  "embla-carousel-react": "For the hero image slider"
+  "embla-carousel-autoplay": "For auto-scrolling hero slider"
+  "react-hook-form": "For form state management in contact and admin pages"
+  "@hookform/resolvers": "For Zod form validation"
+  "zod": "For schema validation"
+  "clsx": "For class merging utility"
+  "tailwind-merge": "For class merging utility"
+
+images:
+  - path: "artifacts/cnc-website/public/images/hero-1.png"
+    description: "Dark moody industrial CNC machine cutting metal with bright orange sparks flying, dramatic cinematic lighting, highly detailed"
+    aspect_ratio: "16:9"
+  - path: "artifacts/cnc-website/public/images/hero-2.png"
+    description: "Close up of a precision machine tool spindle in a dark industrial workshop, dark steel and amber cinematic lighting"
+    aspect_ratio: "16:9"
+  - path: "artifacts/cnc-website/public/images/hero-3.png"
+    description: "Modern clean manufacturing facility floor with row of high tech CNC machines, dark navy and steel tones"
+    aspect_ratio: "16:9"
+  - path: "artifacts/cnc-website/public/images/workshop.png"
+    description: "Engineers inspecting a complex metal part in a dimly lit high-tech industrial workshop, glowing monitors"
+    aspect_ratio: "16:9"
+
+notes:
+  - The API hooks are imported from @workspace/api-client-react
