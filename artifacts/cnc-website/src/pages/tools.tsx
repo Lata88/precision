@@ -56,15 +56,15 @@ export default function Tools() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredTools?.map(tool => (
               <Card key={tool.id} className="flex flex-col h-full bg-card hover:border-primary/50">
-                <div className="aspect-square bg-muted relative overflow-hidden border-b border-border p-4">
+                <div className="h-52 relative overflow-hidden border-b border-border bg-gray-100">
                   {tool.imageUrl ? (
-                    <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-contain mix-blend-screen" />
+                    <img src={tool.imageUrl} alt={tool.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <PenTool className="w-12 h-12 text-white/10" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-muted">
+                      <PenTool className="w-12 h-12 text-muted-foreground opacity-30" />
                     </div>
                   )}
-                  <div className="absolute top-2 left-2 bg-background/90 text-[10px] font-bold uppercase tracking-widest px-2 py-1 text-muted-foreground rounded-sm border border-border">
+                  <div className="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm">
                     {tool.category}
                   </div>
                 </div>
