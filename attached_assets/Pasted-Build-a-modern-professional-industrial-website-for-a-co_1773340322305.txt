@@ -1,0 +1,131 @@
+Build a modern, professional industrial website for a company that manufactures and services CNC machines. The website should be responsive, fast, and suitable for a manufacturing business.
+
+Technology Stack (Free tools preferred):
+
+Frontend: React.js (with Vite or Next.js)
+
+Styling: Tailwind CSS or modern CSS
+
+Backend: Node.js with Express or Firebase
+
+Database: MongoDB Atlas or Firebase Firestore (free tier)
+
+Image storage: Cloudinary or Firebase Storage
+
+Deployment: Vercel or Netlify
+
+Website Name: CNC Machine Tools & Services
+Industry: CNC machine building, machine tools supply, maintenance and servicing.
+
+Website Pages and Features
+1. Home Page
+
+Full-width hero slider with moving images of:
+
+CNC machines
+
+Machine tools
+
+Maintenance/service work
+
+Auto-scrolling slideshow with smooth transitions
+
+Short company introduction
+
+Featured services section
+
+Quick contact section
+
+Call-to-action buttons (Get Quote / Contact Us)
+
+2. About Us
+
+Company introduction
+
+Experience in CNC manufacturing
+
+Mission and vision
+
+Industrial workshop images
+
+3. CNC Machines
+
+List of CNC machines with images and descriptions
+
+Machine specifications section
+
+Image gallery for machines
+
+4. Machine Tools
+
+Display various CNC tools and accessories
+
+Grid layout with tool images and details
+
+5. Services
+
+CNC machine maintenance
+
+Repair and troubleshooting
+
+Installation and calibration
+
+Preventive maintenance packages
+
+6. Gallery
+
+Industrial photo gallery
+
+Machines, workshop, tools, servicing photos
+
+7. Contact Page
+
+Contact form (Name, Phone, Email, Message)
+
+Google Maps location
+
+Phone number and email
+
+WhatsApp contact button
+
+Design Requirements
+
+Industrial, professional design
+
+Colors: dark blue, steel gray, white
+
+Smooth animations
+
+Mobile responsive layout
+
+Modern fonts and clean UI
+
+Sticky navigation bar
+
+Footer with company info and links
+
+Additional Features
+
+Admin panel to upload machine images and tools
+
+Database to store products and services
+
+SEO-friendly structure
+
+Fast loading images
+
+Optimized for Google search
+
+Deliverables
+
+Full React project folder structure
+
+Backend API setup
+
+Database schema
+
+Instructions to deploy on Vercel/Netlify
+
+Instructions to run locally
+
+Make the website look like a modern industrial manufacturing company website with smooth animations and professional layout.
