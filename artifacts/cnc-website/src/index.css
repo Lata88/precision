@@ -21,25 +21,25 @@
 }
 
 :root {
-  /* Dark Navy Industrial Theme */
-  --background: 216 60% 8%;
-  --foreground: 210 40% 98%;
-  
-  /* Amber/Orange Accent */
-  --primary: 38 92% 50%;
-  --primary-foreground: 216 60% 8%;
-  
-  /* Steel Gray / Card Background */
-  --card: 216 50% 12%;
-  --card-foreground: 210 40% 98%;
-  
-  --border: 216 30% 20%;
-  
-  --muted: 216 30% 15%;
-  --muted-foreground: 215 20% 65%;
-  
-  --accent: 216 40% 18%;
-  --destructive: 0 84% 60%;
+  /* Deep Navy Blue Base */
+  --background: 222 72% 7%;
+  --foreground: 0 0% 97%;
+
+  /* Ferrari Red Primary */
+  --primary: 4 88% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Slightly Lighter Navy for Cards */
+  --card: 222 60% 11%;
+  --card-foreground: 0 0% 97%;
+
+  --border: 222 35% 20%;
+
+  --muted: 222 40% 15%;
+  --muted-foreground: 220 18% 62%;
+
+  --accent: 222 45% 18%;
+  --destructive: 4 88% 50%;
 }
 
 @layer base {
