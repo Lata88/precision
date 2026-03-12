@@ -21,24 +21,24 @@
 }
 
 :root {
-  /* Deep Navy Blue Base */
-  --background: 222 72% 7%;
-  --foreground: 0 0% 97%;
+  /* White Base */
+  --background: 0 0% 100%;
+  --foreground: 222 72% 10%;
 
-  /* Ferrari Red Primary */
-  --primary: 4 88% 50%;
+  /* Navy Blue Primary */
+  --primary: 222 72% 22%;
   --primary-foreground: 0 0% 100%;
 
-  /* Slightly Lighter Navy for Cards */
-  --card: 222 60% 11%;
-  --card-foreground: 0 0% 97%;
+  /* Light Gray Cards */
+  --card: 220 20% 97%;
+  --card-foreground: 222 72% 10%;
 
-  --border: 222 35% 20%;
+  --border: 220 20% 88%;
 
-  --muted: 222 40% 15%;
-  --muted-foreground: 220 18% 62%;
+  --muted: 220 20% 94%;
+  --muted-foreground: 220 15% 46%;
 
-  --accent: 222 45% 18%;
+  --accent: 220 25% 91%;
   --destructive: 4 88% 50%;
 }
 
