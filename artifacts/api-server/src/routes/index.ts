@@ -5,6 +5,7 @@ import toolsRouter from "./tools";
 import servicesRouter from "./services";
 import galleryRouter from "./gallery";
 import contactRouter from "./contact";
+import uploadRouter from "./upload";
 
 const router: IRouter = Router();
 
@@ -14,5 +15,6 @@ router.use("/tools", toolsRouter);
 router.use("/services", servicesRouter);
 router.use("/gallery", galleryRouter);
 router.use("/contact", contactRouter);
+router.use("/upload", uploadRouter);
 
 export default router;

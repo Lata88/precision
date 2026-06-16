@@ -17,3 +17,5 @@ export * from "./healthStatus";
 export * from "./machine";
 export * from "./service";
 export * from "./tool";
+export * from "./uploadImage200";
+export * from "./uploadImageBody";

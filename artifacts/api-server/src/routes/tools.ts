@@ -1,26 +1,51 @@
 import { Router, type IRouter } from "express";
-import { db } from "@workspace/db";
-import { toolsTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
 import { CreateToolBody, DeleteToolParams } from "@workspace/api-zod";
+import { localDb } from "../../../../lib/db/src/local-db";
 
 const router: IRouter = Router();
 
 router.get("/", async (_req, res) => {
-  const tools = await db.select().from(toolsTable).orderBy(toolsTable.createdAt);
-  res.json(tools.map(t => ({ ...t, createdAt: t.createdAt.toISOString() })));
+  try {
+    const tools = await localDb.getTools();
+    res.json(tools);
+  } catch (error) {
+    console.error("Error fetching tools:", error);
+    res.status(500).json({ error: "Failed to fetch tools" });
+  }
 });
 
 router.post("/", async (req, res) => {
-  const body = CreateToolBody.parse(req.body);
-  const [tool] = await db.insert(toolsTable).values(body).returning();
-  res.status(201).json({ ...tool, createdAt: tool.createdAt.toISOString() });
+  try {
+    const body = CreateToolBody.parse(req.body);
+    const tool = await localDb.createTool(body);
+    res.status(201).json(tool);
+  } catch (error) {
+    console.error("Error creating tool:", error);
+    res.status(500).json({ error: "Failed to create tool" });
+  }
 });
 
 router.delete("/:id", async (req, res) => {
-  const { id } = DeleteToolParams.parse({ id: Number(req.params.id) });
-  await db.delete(toolsTable).where(eq(toolsTable.id, id));
-  res.status(204).send();
+  try {
+    const { id } = DeleteToolParams.parse({ id: Number(req.params.id) });
+    await localDb.deleteTool(id);
+    res.status(204).send();
+  } catch (error) {
+    console.error("Error deleting tool:", error);
+    res.status(500).json({ error: "Failed to delete tool" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const body = CreateToolBody.parse(req.body);
+    const tool = await localDb.updateTool(id, body);
+    res.json(tool);
+  } catch (error) {
+    console.error("Error updating tool:", error);
+    res.status(500).json({ error: "Failed to update tool" });
+  }
 });
 
 export default router;

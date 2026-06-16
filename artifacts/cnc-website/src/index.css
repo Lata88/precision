@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Raleway:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: 'Roboto', sans-serif;
-  --font-display: 'Raleway', sans-serif;
+  --font-sans: 'Verdana', sans-serif;
+  --font-display: 'Verdana', sans-serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -86,5 +85,57 @@
 
   .btn-navy {
     @apply bg-navy text-white font-bold px-6 py-3 hover:bg-navy/90 transition-colors;
+  }
+
+  /* Logo animations */
+  .logo-load-animation {
+    animation: logoEntrance 1.5s ease-out forwards;
+  }
+
+  @keyframes logoEntrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) rotate(-180deg) translateY(-50px);
+      filter: blur(10px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1) rotate(10deg) translateY(10px);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg) translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .logo-glow {
+    animation: logoGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes logoGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px rgba(354, 85%, 48%, 0.3));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgba(354, 85%, 48%, 0.6));
+    }
+  }
+
+  .logo-text-animation {
+    animation: textSlideIn 1s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
+  @keyframes textSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

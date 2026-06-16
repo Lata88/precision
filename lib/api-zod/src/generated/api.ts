@@ -20,7 +20,7 @@ export const HealthCheckResponse = zod.object({
 export const ListMachinesResponseItem = zod.object({
   id: zod.number(),
   name: zod.string(),
-  description: zod.string(),
+  description: zod.string().nullish(),
   specifications: zod.string(),
   imageUrl: zod.string().nullish(),
   category: zod.string(),
@@ -34,7 +34,7 @@ export const ListMachinesResponse = zod.array(ListMachinesResponseItem);
  */
 export const CreateMachineBody = zod.object({
   name: zod.string(),
-  description: zod.string(),
+  description: zod.string().nullish(),
   specifications: zod.string(),
   imageUrl: zod.string().nullish(),
   category: zod.string(),
@@ -51,7 +51,7 @@ export const GetMachineParams = zod.object({
 export const GetMachineResponse = zod.object({
   id: zod.number(),
   name: zod.string(),
-  description: zod.string(),
+  description: zod.string().nullish(),
   specifications: zod.string(),
   imageUrl: zod.string().nullish(),
   category: zod.string(),
@@ -107,6 +107,7 @@ export const ListServicesResponseItem = zod.object({
   description: zod.string(),
   icon: zod.string(),
   details: zod.string(),
+  imageUrl: zod.string().nullish(),
   createdAt: zod.string(),
 });
 export const ListServicesResponse = zod.array(ListServicesResponseItem);
@@ -119,6 +120,7 @@ export const CreateServiceBody = zod.object({
   description: zod.string(),
   icon: zod.string(),
   details: zod.string(),
+  imageUrl: zod.string().nullish(),
 });
 
 /**
@@ -147,6 +149,19 @@ export const CreateGalleryImageBody = zod.object({
  */
 export const DeleteGalleryImageParams = zod.object({
   id: zod.coerce.number(),
+});
+
+/**
+ * @summary Upload image to storage
+ */
+export const UploadImageBody = zod.object({
+  file: zod.instanceof(File),
+  bucket: zod.string(),
+});
+
+export const UploadImageResponse = zod.object({
+  url: zod.string().optional(),
+  path: zod.string().optional(),
 });
 
 /**

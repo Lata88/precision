@@ -225,6 +225,39 @@ paths:
         "204":
           description: Deleted
 
+  /upload:
+    post:
+      operationId: uploadImage
+      tags: [gallery]
+      summary: Upload image to storage
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                bucket:
+                  type: string
+              required:
+                - file
+                - bucket
+      responses:
+        "200":
+          description: Image uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                  path:
+                    type: string
+
   /contact:
     post:
       operationId: submitContact
@@ -276,6 +309,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         specifications:
           type: string
         imageUrl:
@@ -290,7 +324,6 @@ components:
       required:
         - id
         - name
-        - description
         - specifications
         - category
         - featured
@@ -303,6 +336,7 @@ components:
           type: string
         description:
           type: string
+          nullable: true
         specifications:
           type: string
         imageUrl:
@@ -314,7 +348,6 @@ components:
           type: boolean
       required:
         - name
-        - description
         - specifications
         - category
         - featured
@@ -378,6 +411,9 @@ components:
           type: string
         details:
           type: string
+        imageUrl:
+          type: string
+          nullable: true
         createdAt:
           type: string
       required:
@@ -399,6 +435,9 @@ components:
           type: string
         details:
           type: string
+        imageUrl:
+          type: string
+          nullable: true
       required:
         - title
         - description

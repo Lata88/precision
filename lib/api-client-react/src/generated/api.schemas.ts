@@ -12,7 +12,7 @@ export interface HealthStatus {
 export interface Machine {
   id: number;
   name: string;
-  description: string;
+  description?: string | null;
   specifications: string;
   imageUrl?: string | null;
   category: string;
@@ -22,7 +22,7 @@ export interface Machine {
 
 export interface CreateMachine {
   name: string;
-  description: string;
+  description?: string | null;
   specifications: string;
   imageUrl?: string | null;
   category: string;
@@ -53,6 +53,7 @@ export interface Service {
   description: string;
   icon: string;
   details: string;
+  imageUrl?: string | null;
   createdAt: string;
 }
 
@@ -61,6 +62,7 @@ export interface CreateService {
   description: string;
   icon: string;
   details: string;
+  imageUrl?: string | null;
 }
 
 export interface GalleryImage {
@@ -92,3 +94,13 @@ export interface ContactSubmission {
   message: string;
   createdAt: string;
 }
+
+export type UploadImageBody = {
+  file: Blob;
+  bucket: string;
+};
+
+export type UploadImage200 = {
+  url?: string;
+  path?: string;
+};

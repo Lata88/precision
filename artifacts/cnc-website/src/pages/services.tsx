@@ -42,9 +42,19 @@ export default function Services() {
                 key={service.id} 
                 className={`bg-card rounded-xl border border-border overflow-hidden flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
               >
-                <div className="lg:w-1/3 bg-muted p-12 flex items-center justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-border">
+                <div className="lg:w-1/3 bg-muted p-8 flex items-center justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-border">
                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-background to-background" />
-                  <IconComponent name={service.icon} className="w-32 h-32 text-primary relative z-10 drop-shadow-2xl" />
+                  {service.imageUrl ? (
+                    <div className="w-full h-full flex items-center justify-center relative z-10">
+                      <img 
+                        src={service.imageUrl} 
+                        alt={service.title} 
+                        className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+                      />
+                    </div>
+                  ) : (
+                    <IconComponent name={service.icon} className="w-32 h-32 text-primary relative z-10 drop-shadow-2xl" />
+                  )}
                 </div>
                 
                 <div className="lg:w-2/3 p-8 md:p-12 flex flex-col justify-center">

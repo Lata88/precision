@@ -10,13 +10,13 @@ const slides = [
   {
     image: `${import.meta.env.BASE_URL}images/hero-1.png`,
     title: "Precision Without Compromise",
-    subtitle: "Advanced CNC Machinery for Modern Manufacturing",
+    subtitle: "Next-Gen CNC Solutions for High-Performance Production",
     tag: "Industry Leaders",
   },
   {
     image: `${import.meta.env.BASE_URL}images/hero-2.png`,
-    title: "Industrial Grade Tools",
-    subtitle: "Engineered for Durability and Extreme Accuracy",
+    title: "CNC Cutting Tools and Accessories",
+    subtitle: "Advanced Cutting Tools for Modern Machining",
     tag: "Premium Tooling",
   },
   {
@@ -28,7 +28,7 @@ const slides = [
 ];
 
 const features = [
-  "25+ Years of Industry Experience",
+  "5+ Years of Industry Experience",
   "Certified CNC Engineers",
   "24/7 Emergency Support",
   "Global Parts Sourcing",
@@ -36,21 +36,21 @@ const features = [
 
 const services = [
   {
-    icon: Settings,
-    title: "Equipment Sales",
-    desc: "Premium multi-axis CNC milling and turning centers sourced from world-class manufacturers.",
+    image: `${import.meta.env.BASE_URL}images/hero-1.png`,
+    title: "CNC Machines",
+    desc: "PMT offers state-of-the-art CNC machines for precision and high-performance manufacturing.",
     href: "/machines",
     cta: "View Catalog",
   },
   {
-    icon: Activity,
+    image: `${import.meta.env.BASE_URL}images/hero-2.png`,
     title: "Precision Repair",
     desc: "Expert spindle rebuilding, ball screw repair, and electronics troubleshooting to minimize downtime.",
     href: "/services",
     cta: "Our Services",
   },
   {
-    icon: ShieldCheck,
+    image: `${import.meta.env.BASE_URL}images/hero-3.png`,
     title: "Preventive Maintenance",
     desc: "Scheduled calibration, laser alignment, and comprehensive diagnostics to extend machine life.",
     href: "/services",
@@ -59,17 +59,17 @@ const services = [
 ];
 
 const stats = [
-  { value: "25+", label: "Years Experience" },
-  { value: "500+", label: "Machines Installed" },
-  { value: "1200+", label: "Happy Clients" },
-  { value: "48h", label: "Response Time" },
+  { value: "5+", label: "Years Experience" },
+  { value: "25+", label: "Machines Installed" },
+  { value: "25+", label: "Happy Customers" },
+  { value: "7h", label: "Response Time" },
 ];
 
 export default function Home() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { data: machines } = useListMachines();
-  const featuredMachines = machines?.filter((m) => m.featured).slice(0, 3) ?? [];
+  const featuredMachines = Array.isArray(machines) ? machines.filter((m) => m.featured).slice(0, 3) : [];
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -170,11 +170,10 @@ export default function Home() {
                 Empowering Manufacturing with Cutting-Edge Technology
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                For over two decades, CNC Solutions has been at the forefront of industrial machining. We provide state-of-the-art CNC equipment, precision tools, and unparalleled technical support to manufacturers globally.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+Precision Machine Tools LLC, based in Sharjah, is a team of experienced professionals dedicated to delivering reliable industrial and automation solutions. With over a decade of expertise, we provide innovative, practical, and customer-focused services to help businesses improve performance and productivity.              </p>
+              {/* <p className="text-muted-foreground leading-relaxed mb-8">
                 Whether you are upgrading your facility or need urgent spindle repairs, our expert engineers ensure your production lines never stop.
-              </p>
+              </p> */}
               <ul className="space-y-3 mb-8">
                 {features.map((f) => (
                   <li key={f} className="flex items-center gap-3 text-sm font-medium text-navy">
@@ -195,7 +194,7 @@ export default function Home() {
                 className="rounded-sm shadow-xl w-full object-cover"
               />
               <div className="absolute -bottom-6 -left-6 bg-navy text-white p-5 rounded-sm shadow-xl">
-                <div className="text-4xl font-display font-bold text-primary">25+</div>
+                <div className="text-4xl font-display font-bold text-primary">5+</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-white/70 mt-1">Years of Excellence</div>
               </div>
             </div>
@@ -214,15 +213,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((s) => (
-              <div key={s.title} className="bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow p-8 group border border-border card-hover">
-                <div className="w-14 h-14 bg-primary/10 rounded-sm flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                  <s.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" />
+              <div key={s.title} className="bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-border card-hover group">
+                <div className="h-48 overflow-hidden relative">
+                  <img 
+                    src={s.image} 
+                    alt={s.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 </div>
-                <h3 className="font-display font-bold text-xl text-navy mb-3">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{s.desc}</p>
-                <Link href={s.href} className="text-primary font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
-                  {s.cta} <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="p-6">
+                  <h3 className="font-display font-bold text-xl text-navy mb-3">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{s.desc}</p>
+                  <Link href={s.href} className="text-primary font-bold text-sm uppercase tracking-wide flex items-center gap-2 hover:gap-3 transition-all">
+                    {s.cta} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -288,7 +294,7 @@ export default function Home() {
                 Get a Quote <ArrowRight className="w-4 h-4" />
               </button>
             </Link>
-            <a href="tel:+15551234567">
+            <a href="tel:+971 50 852 7021">
               <button className="px-6 py-3 border-2 border-white text-white text-sm font-bold uppercase tracking-wide hover:bg-white hover:text-navy transition-colors rounded-sm flex items-center gap-2">
                 <Phone className="w-4 h-4" /> Call Us Now
               </button>

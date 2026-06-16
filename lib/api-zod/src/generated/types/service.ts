@@ -12,5 +12,6 @@ export interface Service {
   description: string;
   icon: string;
   details: string;
+  imageUrl?: string | null;
   createdAt: string;
 }

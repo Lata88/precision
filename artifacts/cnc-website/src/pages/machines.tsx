@@ -8,14 +8,14 @@ export default function Machines() {
   const { data: machines, isLoading } = useListMachines();
   const [filter, setFilter] = useState("All");
 
-  const categories = ["All", "Milling", "Turning", "Grinding", "EDM"];
+  const categories = ["All", "Milling", "Turning", "VTL & VTC", "Grinding", "EDM"];
 
   const filteredMachines = machines?.filter(m => filter === "All" || m.category === filter);
 
   return (
     <div className="min-h-screen bg-background pt-8 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">CNC Machines</h1>
@@ -30,9 +30,8 @@ export default function Machines() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-sm text-sm font-semibold uppercase tracking-wider transition-colors ${
-                  filter === cat ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:bg-white/10"
-                }`}
+                className={`px-4 py-2 rounded-sm text-sm font-semibold uppercase tracking-wider transition-colors ${filter === cat ? "bg-primary text-primary-foreground" : "bg-card text-muted-foreground hover:bg-white/10"
+                  }`}
               >
                 {cat}
               </button>
@@ -73,11 +72,11 @@ export default function Machines() {
                     {machine.category}
                   </div>
                 </div>
-                
+
                 <div className="p-6 flex flex-col flex-grow">
                   <h3 className="text-2xl font-display font-bold text-foreground mb-2">{machine.name}</h3>
                   <p className="text-muted-foreground text-sm mb-6 flex-grow">{machine.description}</p>
-                  
+
                   <div className="space-y-3 mb-8">
                     <div className="flex items-center text-sm text-foreground">
                       <Gauge className="w-4 h-4 text-primary mr-3" />

@@ -9,7 +9,7 @@
 export interface Machine {
   id: number;
   name: string;
-  description: string;
+  description?: string | null;
   specifications: string;
   imageUrl?: string | null;
   category: string;

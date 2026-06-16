@@ -1,19 +1,28 @@
 import { Router, type IRouter } from "express";
-import { db } from "@workspace/db";
-import { contactsTable } from "@workspace/db";
 import { SubmitContactBody } from "@workspace/api-zod";
+import { localDb } from "../../../../lib/db/src/local-db";
 
 const router: IRouter = Router();
 
 router.get("/", async (_req, res) => {
-  const contacts = await db.select().from(contactsTable).orderBy(contactsTable.createdAt);
-  res.json(contacts.map(c => ({ ...c, createdAt: c.createdAt.toISOString() })));
+  try {
+    const contacts = await localDb.getContacts();
+    res.json(contacts);
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
+    res.status(500).json({ error: "Failed to fetch contacts" });
+  }
 });
 
 router.post("/", async (req, res) => {
-  const body = SubmitContactBody.parse(req.body);
-  const [contact] = await db.insert(contactsTable).values(body).returning();
-  res.status(201).json({ ...contact, createdAt: contact.createdAt.toISOString() });
+  try {
+    const body = SubmitContactBody.parse(req.body);
+    const contact = await localDb.createContact(body);
+    res.status(201).json(contact);
+  } catch (error) {
+    console.error("Error creating contact:", error);
+    res.status(500).json({ error: "Failed to create contact" });
+  }
 });
 
 export default router;

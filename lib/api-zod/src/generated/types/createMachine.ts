@@ -8,7 +8,7 @@
 
 export interface CreateMachine {
   name: string;
-  description: string;
+  description?: string | null;
   specifications: string;
   imageUrl?: string | null;
   category: string;
