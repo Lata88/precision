@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
       details: req.body.details,
       imageUrl: req.body.imageUrl || null
     };
-    
+
     const service = await localDb.createService(body);
     res.status(201).json(service);
   } catch (error) {

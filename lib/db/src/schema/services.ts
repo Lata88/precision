@@ -8,7 +8,6 @@ export const servicesTable = pgTable("services", {
   description: text("description").notNull(),
   icon: text("icon").notNull(),
   details: text("details").notNull(),
-  imageUrl: text("image_url"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
