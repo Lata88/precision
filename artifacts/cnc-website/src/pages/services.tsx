@@ -14,15 +14,24 @@ export default function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-background pt-8 pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">Expert Industrial Services</h1>
-          <p className="text-lg text-muted-foreground">
+    <div className="min-h-screen bg-background pb-24">
+      {/* Hero Header */}
+      <div className="bg-navy pt-16 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-12">
+        <div className="absolute inset-0 bg-[url('/images/hero-3.jpeg')] opacity-20 bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-80"></div>
+        <div className="max-w-7xl mx-auto relative z-10 text-center flex flex-col items-center">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-primary mb-4">
+            <Wrench className="w-4 h-4" />
+            Our Services
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white mb-6">Expert Industrial Services</h1>
+          <p className="text-white/80 max-w-2xl text-center leading-relaxed text-lg">
             Our certified engineers ensure your equipment operates at peak performance. We offer comprehensive repair, maintenance, and calibration services for all major CNC brands.
           </p>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {isLoading ? (
           <div className="space-y-12">
@@ -42,14 +51,14 @@ export default function Services() {
                 key={service.id} 
                 className={`bg-card rounded-xl border border-border overflow-hidden flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
               >
-                <div className="lg:w-1/3 bg-muted p-8 flex items-center justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-border">
+                <div className={`lg:w-1/3 bg-muted flex items-center justify-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-border ${service.imageUrl ? 'aspect-[4/3] lg:aspect-auto lg:min-h-[360px]' : 'p-8'}`}>
                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-background to-background" />
                   {service.imageUrl ? (
-                    <div className="w-full h-full flex items-center justify-center relative z-10">
+                    <div className="absolute inset-0 z-10 flex items-center justify-center">
                       <img 
                         src={service.imageUrl} 
                         alt={service.title} 
-                        className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                   ) : (

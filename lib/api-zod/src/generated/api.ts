@@ -129,8 +129,9 @@ export const CreateServiceBody = zod.object({
 export const ListGalleryResponseItem = zod.object({
   id: zod.number(),
   title: zod.string(),
-  imageUrl: zod.string(),
+  imageUrl: zod.string().nullish(),
   category: zod.string(),
+  videoUrl: zod.string().nullish(),
   createdAt: zod.string(),
 });
 export const ListGalleryResponse = zod.array(ListGalleryResponseItem);
@@ -140,8 +141,9 @@ export const ListGalleryResponse = zod.array(ListGalleryResponseItem);
  */
 export const CreateGalleryImageBody = zod.object({
   title: zod.string(),
-  imageUrl: zod.string(),
+  imageUrl: zod.string().nullish(),
   category: zod.string(),
+  videoUrl: zod.string().nullish(),
 });
 
 /**

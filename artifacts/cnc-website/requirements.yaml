@@ -9,10 +9,10 @@ packages:
   "tailwind-merge": "For class merging utility"
 
 images:
-  - path: "artifacts/cnc-website/public/images/hero-1.png"
+  - path: "artifacts/cnc-website/public/images/hero-1.jpeg"
     description: "Dark moody industrial CNC machine cutting metal with bright orange sparks flying, dramatic cinematic lighting, highly detailed"
     aspect_ratio: "16:9"
-  - path: "artifacts/cnc-website/public/images/hero-2.png"
+  - path: "artifacts/cnc-website/public/images/hero-2.jpeg"
     description: "Close up of a precision machine tool spindle in a dark industrial workshop, dark steel and amber cinematic lighting"
     aspect_ratio: "16:9"
   - path: "artifacts/cnc-website/public/images/hero-3.png"

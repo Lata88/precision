@@ -1,0 +1,741 @@
+{
+  "machines": [
+    {
+      "name": "Vertical Machining Centers ",
+      "description": null,
+      "specifications": "3-axis Milling",
+      "imageUrl": "/uploads/machines/1781603256610-1.jpeg",
+      "category": "Milling",
+      "featured": false,
+      "id": 1781603261286,
+      "createdAt": "2026-06-16T09:47:41.286Z"
+    },
+    {
+      "name": "Vertical Turning Centers",
+      "description": null,
+      "specifications": "Table Diameter ⌀1,100 ~ 2,000mm",
+      "imageUrl": "/uploads/machines/1781603797035-1.jpeg",
+      "category": "VTL & VTC",
+      "featured": false,
+      "id": 1781603886690,
+      "createdAt": "2026-06-16T09:58:06.690Z",
+      "updatedAt": "2026-06-16T10:21:52.065Z"
+    },
+    {
+      "name": "Vertical Turning Centers",
+      "description": null,
+      "specifications": "Chuck Size 18\" ~ 32\"",
+      "imageUrl": "/uploads/machines/1781604759580-2.jpeg",
+      "category": "VTL & VTC",
+      "featured": false,
+      "id": 1781604842277,
+      "createdAt": "2026-06-16T10:14:02.277Z"
+    },
+    {
+      "name": "Cylindrical Grinding Machine",
+      "description": null,
+      "specifications": "Plunge Cylindrical Grinding Machine",
+      "imageUrl": "/uploads/machines/1781605093948-1.jpeg",
+      "category": "Grinding",
+      "featured": false,
+      "id": 1781605278535,
+      "createdAt": "2026-06-16T10:21:18.535Z"
+    },
+    {
+      "name": "Cylindrical Grinding Machine",
+      "description": null,
+      "specifications": "Angular Cylindrical Grinding Machine",
+      "imageUrl": "/uploads/machines/1781605355597-2.jpeg",
+      "category": "Grinding",
+      "featured": false,
+      "id": 1781605357915,
+      "createdAt": "2026-06-16T10:22:37.915Z"
+    },
+    {
+      "name": "Vertical Machining Centers ",
+      "description": null,
+      "specifications": "3-axis Milling (Vcenter-F Series)",
+      "imageUrl": "/uploads/machines/1781605451519-3-axis1.jpeg",
+      "category": "Milling",
+      "featured": false,
+      "id": 1781605537695,
+      "createdAt": "2026-06-16T10:25:37.695Z"
+    },
+    {
+      "name": "Vertical Machining Centers ",
+      "description": null,
+      "specifications": "4-axis milling machines with Rotary table",
+      "imageUrl": "/uploads/machines/1781605558504-4-axis.jpeg",
+      "category": "Milling",
+      "featured": false,
+      "id": 1781605623171,
+      "createdAt": "2026-06-16T10:27:03.171Z"
+    },
+    {
+      "name": "Vertical Machining Centers ",
+      "description": null,
+      "specifications": "5-axis Milling Machine",
+      "imageUrl": "/uploads/machines/1781605646740-5-axis.jpeg",
+      "category": "Milling",
+      "featured": false,
+      "id": 1781605669481,
+      "createdAt": "2026-06-16T10:27:49.481Z"
+    },
+    {
+      "name": "Vertical Turning Centers",
+      "description": null,
+      "specifications": "Heavy Duty Machines",
+      "imageUrl": "/uploads/machines/1781605823798-heavy-duty.jpeg",
+      "category": "VTL & VTC",
+      "featured": false,
+      "id": 1781605859196,
+      "createdAt": "2026-06-16T10:30:59.196Z"
+    },
+    {
+      "name": "CNC Turning Lathes",
+      "description": null,
+      "specifications": "Horizontal Turning Lathe",
+      "imageUrl": "/uploads/machines/1781606342649-1.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781606474137,
+      "createdAt": "2026-06-16T10:41:14.137Z"
+    },
+    {
+      "name": "CNC Turning Lathes",
+      "description": null,
+      "specifications": "Standard Length horizontal Turning Lathe",
+      "imageUrl": "/uploads/machines/1781606521819-2.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781606633915,
+      "createdAt": "2026-06-16T10:43:53.915Z",
+      "updatedAt": "2026-06-16T10:44:16.851Z"
+    },
+    {
+      "name": "Heavy Duty CNC Turning Lathe",
+      "description": null,
+      "specifications": "Heavy Duty",
+      "imageUrl": "/uploads/machines/1781606706271-4.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781606868458,
+      "createdAt": "2026-06-16T10:47:48.458Z"
+    },
+    {
+      "name": "Heavy Duty Turning Center",
+      "description": null,
+      "specifications": "Heavy Duty",
+      "imageUrl": "/uploads/machines/1781606946786-5.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781607025459,
+      "createdAt": "2026-06-16T10:50:25.459Z"
+    },
+    {
+      "name": "Maximum Performance Turning Centers",
+      "description": null,
+      "specifications": "Maximum Performance",
+      "imageUrl": "/uploads/machines/1781607302647-6.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781607378196,
+      "createdAt": "2026-06-16T10:56:18.196Z"
+    },
+    {
+      "name": "High Speed Turning Centers",
+      "description": null,
+      "specifications": "High Speed",
+      "imageUrl": "/uploads/machines/1781607555226-7.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781607594335,
+      "createdAt": "2026-06-16T10:59:54.335Z"
+    },
+    {
+      "name": "Small Size High Speed Turning Center",
+      "description": null,
+      "specifications": "High Speed",
+      "imageUrl": "/uploads/machines/1781607681061-8.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781607740474,
+      "createdAt": "2026-06-16T11:02:20.474Z"
+    },
+    {
+      "name": "Multi- tasking Machine",
+      "description": null,
+      "specifications": "Multi Tasking",
+      "imageUrl": "/uploads/machines/1781607827739-9.jpeg",
+      "category": "Turn mill",
+      "featured": false,
+      "id": 1781607938373,
+      "createdAt": "2026-06-16T11:05:38.373Z"
+    },
+    {
+      "name": "Multi -Tasking Machine",
+      "description": null,
+      "specifications": "Multi Tasking",
+      "imageUrl": "/uploads/machines/1781608037297-9.jpeg",
+      "category": "Turning",
+      "featured": false,
+      "id": 1781608087694,
+      "createdAt": "2026-06-16T11:08:07.694Z"
+    },
+    {
+      "name": "Cylindrical Grinding Machine",
+      "description": null,
+      "specifications": "Cylindrical Grinding Machine",
+      "imageUrl": "/uploads/machines/1781721389863-3.jpeg",
+      "category": "Grinding",
+      "featured": false,
+      "id": 1781721453338,
+      "createdAt": "2026-06-17T18:37:33.338Z"
+    },
+    {
+      "name": "Surface Grinding Machine",
+      "description": null,
+      "specifications": "Surface Grinding Machine",
+      "imageUrl": "/uploads/machines/1781721472059-4.jpeg",
+      "category": "Grinding",
+      "featured": false,
+      "id": 1781721523945,
+      "createdAt": "2026-06-17T18:38:43.945Z"
+    },
+    {
+      "name": "Wire Cut EDM Machine",
+      "description": null,
+      "specifications": "Wire Cut EDM Machine",
+      "imageUrl": "/uploads/machines/1781721622896-1.jpeg",
+      "category": "EDM",
+      "featured": false,
+      "id": 1781721668848,
+      "createdAt": "2026-06-17T18:41:08.848Z"
+    },
+    {
+      "name": "Injection Molding EDM Machine",
+      "description": null,
+      "specifications": "Injection Molding EDM Machine",
+      "imageUrl": "/uploads/machines/1781721722949-3.jpeg",
+      "category": "EDM",
+      "featured": false,
+      "id": 1781721759977,
+      "createdAt": "2026-06-17T18:42:39.977Z"
+    },
+    {
+      "name": "Sinker Type EDM Machine",
+      "description": null,
+      "specifications": "Sinker Type EDM Machine",
+      "imageUrl": "/uploads/machines/1781721794687-5.jpeg",
+      "category": "EDM",
+      "featured": false,
+      "id": 1781721843491,
+      "createdAt": "2026-06-17T18:44:03.491Z"
+    },
+    {
+      "name": "Multi- Tasking Milling Turning Center ",
+      "description": null,
+      "specifications": "Maximum Turning Dia-750 X2100 Length Turning",
+      "imageUrl": "/uploads/machines/1782106959968-multi-tasking-milling-turning-center.png",
+      "category": "Turning",
+      "featured": false,
+      "id": 1782107084917,
+      "createdAt": "2026-06-22T05:44:44.917Z"
+    },
+    {
+      "name": "Multi- Tasking Milling Turning Center ",
+      "description": null,
+      "specifications": "Maximum Día 500 X 1075 Turning Length  ",
+      "imageUrl": "/uploads/machines/1782107168161-multi-tasking-milling-turning-center-1.png",
+      "category": "Turning",
+      "featured": false,
+      "id": 1782107341827,
+      "createdAt": "2026-06-22T05:49:01.827Z"
+    },
+    {
+      "name": "Horizontal Milling Center",
+      "description": null,
+      "specifications": "Horizontal Milling Center ",
+      "imageUrl": "/uploads/machines/1782107867138-horizontal-machining-center.png",
+      "category": "Milling",
+      "featured": false,
+      "id": 1782107972667,
+      "createdAt": "2026-06-22T05:59:32.667Z"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Solid Carbide End Mills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781950738375-end-mill.png",
+      "category": "Milling",
+      "specifications": "Flat,BallNose,Rougher and Corner Radius End Mills",
+      "id": 1781950827446,
+      "createdAt": "2026-06-20T10:20:27.446Z"
+    },
+    {
+      "name": "Flat End Mills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781950879590-solid-carbide-flate-end-mill.png",
+      "category": "Milling",
+      "specifications": "4 & 5 Fluted Flat End Mills",
+      "id": 1781951004379,
+      "createdAt": "2026-06-20T10:23:24.379Z"
+    },
+    {
+      "name": "Ball Nose End Mills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781951033568-2-fluted-ball-nose-end-mill.png",
+      "category": "Milling",
+      "specifications": "2 Fluted ",
+      "id": 1781951078803,
+      "createdAt": "2026-06-20T10:24:38.803Z",
+      "updatedAt": "2026-06-20T10:26:29.491Z"
+    },
+    {
+      "name": "Ball Nose End Mills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781951225862-4-fluted-ball-nose-end-mill.png",
+      "category": "Milling",
+      "specifications": "4 fluted",
+      "id": 1781951553782,
+      "createdAt": "2026-06-20T10:32:33.782Z"
+    },
+    {
+      "name": "Ceramic End Mills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781951598919-ceramic-end-mill.png",
+      "category": "Milling",
+      "specifications": "Ceramic End Mills",
+      "id": 1781951657800,
+      "createdAt": "2026-06-20T10:34:17.800Z"
+    },
+    {
+      "name": "Face Mill Cutter ",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781951699010-face-mill-cutter-for-general-machining.png",
+      "category": "Milling",
+      "specifications": "General Machining Face Mill Cutter",
+      "id": 1781951775983,
+      "createdAt": "2026-06-20T10:36:15.983Z"
+    },
+    {
+      "name": "Face Mill Cutter",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781951953839-face-mill-cutter-with-14-cutting-edges.png",
+      "category": "Milling",
+      "specifications": "14 cutting edge ",
+      "id": 1781952043875,
+      "createdAt": "2026-06-20T10:40:43.875Z"
+    },
+    {
+      "name": "High Feed Cutters ",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781952112802-high-feed-cutter.png",
+      "category": "Milling",
+      "specifications": "High Feed Cutters for Face Mill",
+      "id": 1781952226624,
+      "createdAt": "2026-06-20T10:43:46.625Z"
+    },
+    {
+      "name": "Shoulder Mill Cutter",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781952286411-shoulder-and-face--milling-cutter.png",
+      "category": "Milling",
+      "specifications": "Sholder Mill cutter",
+      "id": 1781952334102,
+      "createdAt": "2026-06-20T10:45:34.102Z",
+      "updatedAt": "2026-06-20T10:46:46.804Z"
+    },
+    {
+      "name": "Shoulder Mill Cutter",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781952431978-deep-shoulder-milling-cutter.png",
+      "category": "Milling",
+      "specifications": "Deep Shoulder Milling Cutter",
+      "id": 1781952622354,
+      "createdAt": "2026-06-20T10:50:22.355Z"
+    },
+    {
+      "name": "Slot Milling Cutter",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781961162903-slot-milling.jpeg",
+      "category": "Milling",
+      "specifications": "T Slot Milling Cutter",
+      "id": 1781961195902,
+      "createdAt": "2026-06-20T13:13:15.902Z"
+    },
+    {
+      "name": "Milling Inserts",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781961541632-milling-inserts-1.png",
+      "category": "Milling",
+      "specifications": "All types of Milling Inserts",
+      "id": 1781961572738,
+      "createdAt": "2026-06-20T13:19:32.738Z"
+    },
+    {
+      "name": "Solid Carbide Drills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781962168005-solid-carbide-drill-with-out-coolant.png",
+      "category": "Hole Making",
+      "specifications": "Solid Carbide Drills",
+      "id": 1781962221138,
+      "createdAt": "2026-06-20T13:30:21.138Z"
+    },
+    {
+      "name": "Indexable Drills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781962248801-indexable-type-drill.png",
+      "category": "Hole Making",
+      "specifications": "Indexable inserted type drills",
+      "id": 1781962297030,
+      "createdAt": "2026-06-20T13:31:37.030Z"
+    },
+    {
+      "name": "Modular Type Drills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781962365202-modular-types-drilling-tools.png",
+      "category": "Hole Making",
+      "specifications": "Modular Type Drills",
+      "id": 1781962516846,
+      "createdAt": "2026-06-20T13:35:16.846Z"
+    },
+    {
+      "name": "U Drill",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781967002042-image_ca0d200d.png",
+      "category": "Hole Making",
+      "specifications": "Inserted type U Drills",
+      "id": 1781967046131,
+      "createdAt": "2026-06-20T14:50:46.132Z"
+    },
+    {
+      "name": "Solid Carbide Reamers",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781967134642-solid-carbide--reamer.png",
+      "category": "Hole Making",
+      "specifications": "Solid Carbide Reamers",
+      "id": 1781967170031,
+      "createdAt": "2026-06-20T14:52:50.031Z",
+      "updatedAt": "2026-06-20T14:55:30.992Z"
+    },
+    {
+      "name": "Indexable Head Type Reamers",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781967243221-indexable-types-reamer.png",
+      "category": "Hole Making",
+      "specifications": "Indexable Head Type Reamers",
+      "id": 1781967316008,
+      "createdAt": "2026-06-20T14:55:16.008Z",
+      "updatedAt": "2026-06-20T14:56:05.375Z"
+    },
+    {
+      "name": "Indexable Head Reamers",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781967380330-indexable-types-reamer-1.png",
+      "category": "Hole Making",
+      "specifications": "Indexable Head Reamers",
+      "id": 1781967417600,
+      "createdAt": "2026-06-20T14:56:57.600Z"
+    },
+    {
+      "name": "Indexable Type Rough Boring Head",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781968090836-indexable-boring-1.jpeg",
+      "category": "Hole Making",
+      "specifications": "Boring Tools",
+      "id": 1781968172318,
+      "createdAt": "2026-06-20T15:09:32.318Z"
+    },
+    {
+      "name": "Deep Hole Drilling Heads",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781968209102-deep-hole-drilling.png",
+      "category": "Hole Making",
+      "specifications": "Boring Tools",
+      "id": 1781968337765,
+      "createdAt": "2026-06-20T15:12:17.765Z"
+    },
+    {
+      "name": "Threading Inserts",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781968803495-threading-inserts-operation.png",
+      "category": "Threading",
+      "specifications": "Threading Inserts",
+      "id": 1781968819254,
+      "createdAt": "2026-06-20T15:20:19.254Z"
+    },
+    {
+      "name": "Threading Tools",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781968843677-threading--operation.png",
+      "category": "Threading",
+      "specifications": "Threading Tools",
+      "id": 1781968952882,
+      "createdAt": "2026-06-20T15:22:32.882Z"
+    },
+    {
+      "name": "Machine Tap",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781980472186-machine-tap.jpeg",
+      "category": "Threading",
+      "specifications": "Spiral and Straight Flute Machine Taps",
+      "id": 1781980532732,
+      "createdAt": "2026-06-20T18:35:32.732Z"
+    },
+    {
+      "name": "Hand Taps",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781980545952-hand-tap.jpeg",
+      "category": "Threading",
+      "specifications": "HSS Hand Taps",
+      "id": 1781980577914,
+      "createdAt": "2026-06-20T18:36:17.914Z"
+    },
+    {
+      "name": "Thread Mills",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781980630263-thread-milling.png",
+      "category": "Threading",
+      "specifications": "Solid Carbide and Inserted Types thread mills",
+      "id": 1781980745204,
+      "createdAt": "2026-06-20T18:39:05.204Z"
+    },
+    {
+      "name": "Die and Gauges",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781981002485-die-and-gauges.jpeg",
+      "category": "Threading",
+      "specifications": "Thread Dies and Gauges",
+      "id": 1781981050342,
+      "createdAt": "2026-06-20T18:44:10.342Z"
+    },
+    {
+      "name": "Threading Holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781981592109-threading-holders.jpeg",
+      "category": "Threading",
+      "specifications": "Threading Holders",
+      "id": 1781981601577,
+      "createdAt": "2026-06-20T18:53:21.577Z"
+    },
+    {
+      "name": "Turning Inserts",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781982072989-turning-insertds.png",
+      "category": "Turning",
+      "specifications": "Negative types of Turning Inserts",
+      "id": 1781982117602,
+      "createdAt": "2026-06-20T19:01:57.602Z",
+      "updatedAt": "2026-06-20T19:16:52.038Z"
+    },
+    {
+      "name": "Turning Inserts",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781982951464-possitive-turning-inserts.png",
+      "category": "Turning",
+      "specifications": "Positive Types Carbide Inserts",
+      "id": 1781982990712,
+      "createdAt": "2026-06-20T19:16:30.712Z"
+    },
+    {
+      "name": "External Turning holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781983055372-turning-tool-holder-with-inserts.png",
+      "category": "Turning",
+      "specifications": "O.D Turning holders",
+      "id": 1781983113575,
+      "createdAt": "2026-06-20T19:18:33.575Z"
+    },
+    {
+      "name": "Parting and Grooving Holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781983152461-parting-and-o.d-grooving-holder.png",
+      "category": "Turning",
+      "specifications": "Parting and Grooving Holders",
+      "id": 1781983200024,
+      "createdAt": "2026-06-20T19:20:00.024Z"
+    },
+    {
+      "name": "Boring Bar",
+      "description": "",
+      "imageUrl": "/uploads/tools/1781985390484-boring-bar1.jpeg",
+      "category": "Turning",
+      "specifications": "Internal Boring Bar",
+      "id": 1781985053259,
+      "createdAt": "2026-06-20T19:50:53.259Z",
+      "updatedAt": "2026-06-20T19:56:34.704Z"
+    },
+    {
+      "name": "Tool Holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782036223102-total-tool-holders.png",
+      "category": "Tooling Systems",
+      "specifications": "All Types of Tool Holders",
+      "id": 1782036317118,
+      "createdAt": "2026-06-21T10:05:17.118Z"
+    },
+    {
+      "name": "Tool Holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782036437253-tool-holders-2.png",
+      "category": "Tooling Systems",
+      "specifications": "Tool Holders",
+      "id": 1782036499755,
+      "createdAt": "2026-06-21T10:08:19.755Z"
+    },
+    {
+      "name": "CNC Collets",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782036559885-different-types-collets.png",
+      "category": "Tooling Systems",
+      "specifications": "All Types of CNC Collets",
+      "id": 1782036755521,
+      "createdAt": "2026-06-21T10:12:35.521Z"
+    },
+    {
+      "name": "ER Collets",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782036803440-er-collets.png",
+      "category": "Tooling Systems",
+      "specifications": "ER Collets",
+      "id": 1782036828547,
+      "createdAt": "2026-06-21T10:13:48.547Z"
+    },
+    {
+      "name": "Full Ranges Tool Holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782036966955-full-ranges-tool-holders-holders.png",
+      "category": "Tooling Systems",
+      "specifications": "Full Ranges Tool Holders",
+      "id": 1782036999442,
+      "createdAt": "2026-06-21T10:16:39.443Z",
+      "updatedAt": "2026-06-21T10:17:33.688Z"
+    },
+    {
+      "name": "Hydrogrip Holders",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782037095405-hydrogrip-holders.png",
+      "category": "Tooling Systems",
+      "specifications": "Hydrogrip Tool Holders",
+      "id": 1782037173065,
+      "createdAt": "2026-06-21T10:19:33.065Z"
+    },
+    {
+      "name": "Pull Studs",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782037290388-different-types-pull-studs.png",
+      "category": "Tooling Systems",
+      "specifications": "All types of Pull Studs",
+      "id": 1782037387267,
+      "createdAt": "2026-06-21T10:23:07.267Z"
+    },
+    {
+      "name": "Pull Studs",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782037455082-pull-studs.png",
+      "category": "Tooling Systems",
+      "specifications": "Pull Studs",
+      "id": 1782037491615,
+      "createdAt": "2026-06-21T10:24:51.615Z"
+    },
+    {
+      "name": "Indexable Threading Tools",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782108385695-inserted-thread-mill-cutter.png",
+      "category": "Threading",
+      "specifications": "Inserted types Threading Tools ",
+      "id": 1782108435016,
+      "createdAt": "2026-06-22T06:07:15.016Z"
+    },
+    {
+      "name": "Inserted Yypes Threading Tools",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782108450737-indexable-inserted--types-thread-millholder.png",
+      "category": "Threading",
+      "specifications": "Inserted types I.D Threading Tools",
+      "id": 1782108514631,
+      "createdAt": "2026-06-22T06:08:34.631Z"
+    },
+    {
+      "name": " Thread Mill Cutter",
+      "description": "",
+      "imageUrl": "/uploads/tools/1782109253461-solid-carbide-thread-milling--cutter.png",
+      "category": "Threading",
+      "specifications": "Solid Carbide Thread Mill Cutter",
+      "id": 1782109258974,
+      "createdAt": "2026-06-22T06:20:58.974Z"
+    }
+  ],
+  "services": [
+    {
+      "title": "Installation And Commissioning",
+      "description": "Precision Machine Tools Service Team has successfully completed the installation & commissioning more than 50 machines in the United Arabic Emirates  and Middle East region. Precision Machine Tools has experienced and trained service engineers capable of installing wide variety of CNC Machines with Fanuc/Siemens/Heidenheim CNC control systems. Installation and commissioning must follow Scientific and Professional way of assembling machine using proper tools, levelling of the machine. Switching on with necessary care and demonstrating the’ machine accuracy as guaranteed. Proper installation ensures the machine’s best Performance, Reliability and Ease of is maintenance. Customers can use PRECISION MACHINE TOOLS LLC team which has Trained and Experienced Service engineers with the necessary Tools and Calibration equipment required for I & C.",
+      "icon": "cnc",
+      "details": "CNC,VMC",
+      "imageUrl": "/uploads/services/1781865173835-3.jpeg",
+      "id": 1781173632339,
+      "createdAt": "2026-06-11T10:27:12.339Z",
+      "updatedAt": "2026-06-19T10:32:57.068Z"
+    },
+    {
+      "title": "Breakdown Services",
+      "description": "A machine’s breakdown true cost is difficult to measure. Machine breakdown at a critical time can not only cost huge business losses but also business relationship between companies.  The biggest relief at such a critical time comes from quickly putting the machine into operation. Precision Machine Tools LLC understands the importance of machine uptime for any industry and offers quick response for any emergency breakdown service requests and ensures that machine is put back into operation in the shortest possible period.",
+      "icon": "Settings",
+      "details": "CNC,VMC,HMC, CONVENTIONAL MACHINE,GRINDING MACHINE",
+      "imageUrl": "/uploads/services/1781865379211-image_c0163cd7.png",
+      "id": 1781865398869,
+      "createdAt": "2026-06-19T10:36:38.869Z",
+      "updatedAt": "2026-06-19T10:37:00.463Z"
+    },
+    {
+      "title": "Annual Maintenance Contract (AMC)",
+      "description": "Machine maintenance can be done periodically (Periodic Preventive Maintenance) or when failure occurs (Breakdown Maintenance). Most companies focus on reactive maintenance which is maintenance after failure occurs.  Periodic maintenance is a form of Proactive maintenance done at fixed intervals of time, which helps in minimizing machine downtime and production loss. Annual maintenance contract (AMC) between customer and Precision Machine Tools ensures the machines maintenance activity carried out at agreed intervals of time and in a specified way to minimize machine failure and consequent machine downtime and production loss. Precision Machine Tools has a team of qualified and experienced service engineers stationed in UAE for providing AMC Services at a reasonable cost and time schedules.",
+      "icon": "Settings",
+      "details": "CNC,VMC,HMC,VTL,CONVENTIONAL MACHINES, GRINDING MACHINES, ALL INDUSTRIAL CNC MACHINES",
+      "imageUrl": "/uploads/services/1781865630448-image_ea5b1c23.png",
+      "id": 1781865646583,
+      "createdAt": "2026-06-19T10:40:46.583Z",
+      "updatedAt": "2026-06-19T10:41:33.763Z"
+    },
+    {
+      "title": "Retrofitting of CNC Machine",
+      "description": "CNC machines used in heavy engineering Industries generally fail due to aging electronics. Due to the Huge cost and Larger lead times, it is not cost effective to replace these machines. Retrofitting such machines with latest CNC control, servo and spindle motors, drives, electrical components while retaining the mechanical components, is an excellent option for restoring their accuracy, uptime, and productivity. This not only results in huge savings by avoiding purchase of New expensive machines but also saves time as retrofitting can be done in much less time than manufacturing a new machine. Precision Machine Tools LLC have nearly 10 years of experience in retrofitting of such large machines such as VMC, HMC, Boring machines with Fanuc/Siemens/Heidenheim CNC Controllers to the Benifit of many Satisfied customers. Euro gulf has a team of Highly Qualified Engineers in UAE and India to support customer in every step of retrofit from CNC selection, electrical schematic design, panel rewiring, machine rewiring, electromechanical support, application programming and after sale service.",
+      "icon": "Settings",
+      "details": "CNC,VMC,VTL,CONVENTIONAL MACHINES, GRINDING MACHINES",
+      "imageUrl": "/uploads/services/1781866148259-image_1475bd4d.png",
+      "id": 1781866005315,
+      "createdAt": "2026-06-19T10:46:45.315Z",
+      "updatedAt": "2026-06-19T10:49:10.642Z"
+    },
+    {
+      "title": "Spare Parts and Accessories",
+      "description": "No matter how well CNC machines are designed and built, over time certain components will eventually wear out and fail. Similarly, no matter how well operators are trained, accidents occur due to some unexpected human errors. During the machine breakdowns, effective sourcing, supply of quality spare parts is very critical to quickly put back the machine in to operation. Precision Machine Tools LLC with their vast experience in maintenance and repair services have through knowledge of machine parts availability and can arrange for any critical spare part within reasonable time.",
+      "icon": "Settings",
+      "details": "CNC,VMC,HMC,VTL,CONVENTIONAL MACHINES, GRINDING MACHINES, ALL INDUSTRIAL CNC MACHINES",
+      "imageUrl": "/uploads/services/1781880800280-image_52dbad71.png",
+      "id": 1781880865709,
+      "createdAt": "2026-06-19T14:54:25.710Z"
+    },
+    {
+      "title": "Machine Relocation",
+      "description": "Expensive CNC machines are an important asset of any company. It is therefore very important to keep them in operation all the time with least downtime. In the eventuality of their relocation from one shop to another or one Factory site to another site, it should be done with utmost care so as not to damage any part and in least possible time so as not to cause any production loss. \nIt should therefore be entrusted to professionals who are experienced and have right tools and knowledge to execute the job. Finding the correct relocation services team is key for hassle free and safe relocation of complex and expensive machines. After relocation the machines static and dynamic accuracies must once again be verified for accuracy as per relevant standards before taking machines into production. Precision Machine Tools LLC team’s Professional approach, meticulous planning and experience guarantee worry-free machine relocation and calibration before handing over machine for production.",
+      "icon": "Settings",
+      "details": "CNC,VMC,HMC,VTL,CONVENTIONAL MACHINES, GRINDING MACHINES, ALL INDUSTRIAL MACHINES",
+      "imageUrl": "/uploads/services/1781924226954-image_7c0ac87e.png",
+      "id": 1781924268386,
+      "createdAt": "2026-06-20T02:57:48.386Z"
+    }
+  ],
+  "gallery": [
+    {
+      "title": "CNC Machining",
+      "imageUrl": "/uploads/gallery/1782152122306-cnc-tools.png",
+      "category": "Milling",
+      "id": 1782152126495,
+      "createdAt": "2026-06-22T18:15:26.495Z"
+    }
+  ],
+  "contacts": []
+}

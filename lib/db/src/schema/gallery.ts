@@ -5,7 +5,8 @@ import { z } from "zod/v4";
 export const galleryTable = pgTable("gallery", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  imageUrl: text("image_url").notNull(),
+  imageUrl: text("image_url"),
+  videoUrl: text("video_url"),
   category: text("category").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });

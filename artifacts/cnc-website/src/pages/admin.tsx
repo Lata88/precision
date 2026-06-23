@@ -66,9 +66,11 @@ interface ImageUploadProps {
   value?: string | null;
   onChange: (url: string | null) => void;
   bucket: string;
+  acceptType?: "image" | "video";
+  label?: string;
 }
 
-function ImageUpload({ value, onChange, bucket }: ImageUploadProps) {
+function ImageUpload({ value, onChange, bucket, acceptType = "image", label }: ImageUploadProps) {
   const uploadImage = useUploadImage();
   const [isUploading, setIsUploading] = useState(false);
   const { toast } = useToast();
@@ -77,22 +79,40 @@ function ImageUpload({ value, onChange, bucket }: ImageUploadProps) {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (!file.type.startsWith("image/")) {
-      toast({
-        title: "Invalid file type",
-        description: "Please upload an image file.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (file.size > 5 * 1024 * 1024) {
-      toast({
-        title: "File too large",
-        description: "Image size must be less than 5MB.",
-        variant: "destructive",
-      });
-      return;
+    if (acceptType === "video") {
+      if (!file.type.startsWith("video/")) {
+        toast({
+          title: "Invalid file type",
+          description: "Please upload a video file.",
+          variant: "destructive",
+        });
+        return;
+      }
+      if (file.size > 50 * 1024 * 1024) {
+        toast({
+          title: "File too large",
+          description: "Video size must be less than 50MB.",
+          variant: "destructive",
+        });
+        return;
+      }
+    } else {
+      if (!file.type.startsWith("image/")) {
+        toast({
+          title: "Invalid file type",
+          description: "Please upload an image file.",
+          variant: "destructive",
+        });
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        toast({
+          title: "File too large",
+          description: "Image size must be less than 5MB.",
+          variant: "destructive",
+        });
+        return;
+      }
     }
 
     setIsUploading(true);
@@ -106,15 +126,15 @@ function ImageUpload({ value, onChange, bucket }: ImageUploadProps) {
 
       if (response.url) {
         onChange(response.url);
-        toast({ title: "Image uploaded successfully" });
+        toast({ title: `${acceptType === "video" ? "Video" : "Image"} uploaded successfully` });
       } else {
-        throw new Error("Failed to get image URL from response");
+        throw new Error("Failed to get file URL from response");
       }
     } catch (error) {
       console.error("Upload error:", error);
       toast({
         title: "Upload failed",
-        description: error instanceof Error ? error.message : "Failed to upload image.",
+        description: error instanceof Error ? error.message : "Failed to upload file.",
         variant: "destructive",
       });
     } finally {
@@ -122,18 +142,24 @@ function ImageUpload({ value, onChange, bucket }: ImageUploadProps) {
     }
   };
 
+  const finalLabel = label || (acceptType === "video" ? "Video" : "Image");
+
   return (
     <div className="space-y-2">
       <label className="text-sm font-semibold text-foreground block">
-        Image
+        {finalLabel}
       </label>
       {value ? (
-        <div className="relative rounded-md border border-border overflow-hidden aspect-[16/9] max-w-sm group">
-          <img src={value} alt="Preview" className="w-full h-full object-cover" />
+        <div className="relative rounded-md border border-border overflow-hidden aspect-[16/9] max-w-sm group bg-black flex items-center justify-center">
+          {acceptType === "video" ? (
+            <video src={value} className="w-full h-full object-cover" muted playsInline autoPlay loop />
+          ) : (
+            <img src={value} alt="Preview" className="w-full h-full object-cover" />
+          )}
           <button
             type="button"
             onClick={() => onChange(null)}
-            className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 hover:bg-black/95 text-white transition-opacity opacity-0 group-hover:opacity-100"
+            className="absolute top-2 right-2 p-1.5 rounded-full bg-black/70 hover:bg-black/95 text-white transition-opacity opacity-0 group-hover:opacity-100 z-10"
           >
             <X className="w-4 h-4" />
           </button>
@@ -153,13 +179,15 @@ function ImageUpload({ value, onChange, bucket }: ImageUploadProps) {
             ) : (
               <div className="flex flex-col items-center space-y-2 text-muted-foreground text-center">
                 <Upload className="w-8 h-8 text-primary/80" />
-                <span className="text-sm font-medium text-foreground">Click to upload image</span>
-                <span className="text-xs">PNG, JPG, WEBP up to 5MB</span>
+                <span className="text-sm font-medium text-foreground">Click to upload {acceptType === "video" ? "video" : "image"}</span>
+                <span className="text-xs text-muted-foreground">
+                  {acceptType === "video" ? "MP4, WebM up to 50MB" : "PNG, JPG, WEBP up to 5MB"}
+                </span>
               </div>
             )}
             <input
               type="file"
-              accept="image/*"
+              accept={acceptType === "video" ? "video/*" : "image/*"}
               className="hidden"
               onChange={handleFileChange}
               disabled={isUploading}
@@ -317,7 +345,7 @@ function MachinesAdmin() {
 // --- TOOLS ADMIN ---
 const toolSchema = z.object({
   name: z.string().min(1),
-  description: z.string().min(1),
+  description: z.string().optional(),
   specifications: z.string().min(1),
   imageUrl: z.string().optional(),
   category: z.string().min(1),
@@ -351,7 +379,7 @@ function ToolsAdmin() {
   });
 
   const onSubmit = (data: z.infer<typeof toolSchema>) => {
-    const payload = { ...data, imageUrl: data.imageUrl || null };
+    const payload = { ...data, description: data.description || "", imageUrl: data.imageUrl || null };
     if (editingId !== null) {
       updateTool.mutate({ id: editingId, data: payload });
     } else {
@@ -417,7 +445,7 @@ function ToolsAdmin() {
                       name: t.name,
                       category: t.category,
                       specifications: t.specifications,
-                      description: t.description,
+                      description: t.description || "",
                       imageUrl: t.imageUrl || undefined,
                     });
                   }}
@@ -589,8 +617,19 @@ function ServicesAdmin() {
 // --- GALLERY ADMIN ---
 const gallerySchema = z.object({
   title: z.string().min(1),
-  imageUrl: z.string().min(1),
+  imageUrl: z.string().optional().nullable(),
+  videoUrl: z.string().optional().nullable(),
   category: z.string().min(1),
+  mediaType: z.enum(["image", "video"]).default("image"),
+}).refine(data => {
+  if (data.mediaType === "image") {
+    return !!data.imageUrl;
+  } else {
+    return !!data.videoUrl;
+  }
+}, {
+  message: "Please upload the corresponding media file",
+  path: ["imageUrl"]
 });
 
 function GalleryAdmin() {
@@ -599,14 +638,25 @@ function GalleryAdmin() {
   const deleteGallery = useDeleteGalleryImage();
   const queryClient = useQueryClient();
   const { toast } = useToast();
-  const form = useForm<z.infer<typeof gallerySchema>>({ resolver: zodResolver(gallerySchema) });
+  const form = useForm<z.infer<typeof gallerySchema>>({ 
+    resolver: zodResolver(gallerySchema),
+    defaultValues: { mediaType: "image", imageUrl: null, videoUrl: null }
+  });
+
+  const mediaType = form.watch("mediaType");
 
   const onSubmit = (data: z.infer<typeof gallerySchema>) => {
-    createGallery.mutate({ data }, {
+    const payload = {
+      title: data.title,
+      category: data.category,
+      imageUrl: data.mediaType === "image" ? data.imageUrl : (data.imageUrl || null),
+      videoUrl: data.mediaType === "video" ? data.videoUrl : null,
+    };
+    createGallery.mutate({ data: payload }, {
       onSuccess: () => {
-        toast({ title: "Image Added" });
+        toast({ title: "Gallery Item Added" });
         queryClient.invalidateQueries({ queryKey: getListGalleryQueryKey() });
-        form.reset();
+        form.reset({ title: "", category: "", imageUrl: null, videoUrl: null, mediaType: "image" });
       }
     });
   };
@@ -614,35 +664,89 @@ function GalleryAdmin() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <div>
-        <h3 className="text-xl font-bold mb-6">Add Image</h3>
+        <h3 className="text-xl font-bold mb-6">Add Gallery Item</h3>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <Input {...form.register("title")} placeholder="Image Title" />
+          <Input {...form.register("title")} placeholder="Item Title" />
           <Input {...form.register("category")} placeholder="Category" />
-          <ImageUpload
-            value={form.watch("imageUrl")}
-            onChange={(url) => form.setValue("imageUrl", url || "")}
-            bucket="gallery"
-          />
-          <Button type="submit" disabled={createGallery.isPending}>Add Image</Button>
+          
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-foreground block">Media Type</label>
+            <div className="flex gap-4">
+              <label className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="radio"
+                  value="image"
+                  {...form.register("mediaType")}
+                  className="w-4 h-4 text-primary bg-background border-border"
+                />
+                <span className="text-sm">Image</span>
+              </label>
+              <label className="flex items-center space-x-2 cursor-pointer">
+                <input
+                  type="radio"
+                  value="video"
+                  {...form.register("mediaType")}
+                  className="w-4 h-4 text-primary bg-background border-border"
+                />
+                <span className="text-sm">Video</span>
+              </label>
+            </div>
+          </div>
+
+          {mediaType === "image" ? (
+            <ImageUpload
+              value={form.watch("imageUrl")}
+              onChange={(url) => form.setValue("imageUrl", url || null)}
+              bucket="gallery"
+              acceptType="image"
+            />
+          ) : (
+            <div className="space-y-4">
+              <ImageUpload
+                value={form.watch("videoUrl")}
+                onChange={(url) => form.setValue("videoUrl", url || null)}
+                bucket="gallery"
+                acceptType="video"
+                label="Video File"
+              />
+              <ImageUpload
+                value={form.watch("imageUrl")}
+                onChange={(url) => form.setValue("imageUrl", url || null)}
+                bucket="gallery"
+                acceptType="image"
+                label="Video Thumbnail (Optional)"
+              />
+            </div>
+          )}
+          <Button type="submit" disabled={createGallery.isPending}>Add Gallery Item</Button>
         </form>
       </div>
       <div>
-        <h3 className="text-xl font-bold mb-6">Current Images</h3>
+        <h3 className="text-xl font-bold mb-6">Current Gallery Items</h3>
         <div className="grid grid-cols-2 gap-4 max-h-[600px] overflow-y-auto pr-2">
           {images?.map(img => (
-            <div key={img.id} className="relative group rounded-sm overflow-hidden border border-border aspect-square">
-              <img src={img.imageUrl} alt={img.title} className="w-full h-full object-cover opacity-80" />
+            <div key={img.id} className="relative group rounded-sm overflow-hidden border border-border aspect-square bg-black flex items-center justify-center">
+              {img.videoUrl ? (
+                <video src={img.videoUrl} className="w-full h-full object-cover opacity-60" muted playsInline />
+              ) : (
+                <img src={img.imageUrl || ""} alt={img.title} className="w-full h-full object-cover opacity-80" />
+              )}
+              {img.videoUrl && (
+                <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/60 text-[10px] uppercase font-bold text-primary z-10">
+                  Video
+                </div>
+              )}
               <Button 
                 variant="destructive" 
                 size="sm" 
-                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10"
                 onClick={() => {
-                  if(confirm("Delete image?")) deleteGallery.mutate({ id: img.id }, { onSuccess: () => queryClient.invalidateQueries({ queryKey: getListGalleryQueryKey() }) });
+                  if(confirm("Delete item?")) deleteGallery.mutate({ id: img.id }, { onSuccess: () => queryClient.invalidateQueries({ queryKey: getListGalleryQueryKey() }) });
                 }}
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
-              <div className="absolute bottom-0 w-full bg-black/80 text-[10px] p-2 truncate">{img.title}</div>
+              <div className="absolute bottom-0 w-full bg-black/80 text-[10px] p-2 truncate z-10">{img.title}</div>
             </div>
           ))}
         </div>

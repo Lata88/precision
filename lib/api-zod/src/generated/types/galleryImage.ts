@@ -9,7 +9,8 @@
 export interface GalleryImage {
   id: number;
   title: string;
-  imageUrl: string;
+  imageUrl?: string | null;
   category: string;
+  videoUrl?: string | null;
   createdAt: string;
 }

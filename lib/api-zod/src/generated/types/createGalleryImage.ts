@@ -8,6 +8,7 @@
 
 export interface CreateGalleryImage {
   title: string;
-  imageUrl: string;
+  imageUrl?: string | null;
   category: string;
+  videoUrl?: string | null;
 }

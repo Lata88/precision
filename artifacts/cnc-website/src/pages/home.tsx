@@ -8,22 +8,36 @@ import { useListMachines } from "@workspace/api-client-react";
 
 const slides = [
   {
-    image: `${import.meta.env.BASE_URL}images/hero-1.png`,
+    image: `${import.meta.env.BASE_URL}images/hero-1.jpeg`,
     title: "Precision Without Compromise",
     subtitle: "Next-Gen CNC Solutions for High-Performance Production",
     tag: "Industry Leaders",
+    actionText: "Explore Machines",
+    actionLink: "/machines",
   },
   {
-    image: `${import.meta.env.BASE_URL}images/hero-2.png`,
-    title: "CNC Cutting Tools and Accessories",
+    image: `${import.meta.env.BASE_URL}images/hero-4.png`,
+    title: "Machine Tools and Accessories",
+    subtitle: "Precision Solutions for Modern Manufacturing",
+    tag: "Industry Leaders",
+    actionText: "View Machine Tools",
+    actionLink: "/tools",
+  },
+  {
+    image: `${import.meta.env.BASE_URL}images/hero-2.jpeg`,
+    title: "Cutting Tools and Accessories",
     subtitle: "Advanced Cutting Tools for Modern Machining",
     tag: "Premium Tooling",
+    actionText: "View Cutting Tools",
+    actionLink: "/tools",
   },
   {
-    image: `${import.meta.env.BASE_URL}images/hero-3.png`,
+    image: `${import.meta.env.BASE_URL}images/hero-3.jpeg`,
     title: "Expert Servicing & Maintenance",
-    subtitle: "Minimizing Downtime, Maximizing Productivity",
+    subtitle: "Expert Care. Reliable Performance.",
     tag: "Certified Service",
+    actionText: "Our Services",
+    actionLink: "/services",
   },
 ];
 
@@ -36,26 +50,40 @@ const features = [
 
 const services = [
   {
-    image: `${import.meta.env.BASE_URL}images/hero-1.png`,
-    title: "CNC Machines",
-    desc: "PMT offers state-of-the-art CNC machines for precision and high-performance manufacturing.",
+    image: `${import.meta.env.BASE_URL}images/machine.jpeg`,
+    title: "CNC Machines Sales",
+    desc: "PMT offers a diverse portfolio of high-performance CNC machinery, providing reliable and cutting-edge technology tailored to elevate your production capabilities, efficiency, and precision.",
     href: "/machines",
     cta: "View Catalog",
   },
   {
-    image: `${import.meta.env.BASE_URL}images/hero-2.png`,
-    title: "Precision Repair",
-    desc: "Expert spindle rebuilding, ball screw repair, and electronics troubleshooting to minimize downtime.",
+    image: `${import.meta.env.BASE_URL}images/cnc-tools.png`,
+    title: "CNC Cutting Tools and Accessories",
+    desc: "Maximize your machining precision and tool life with our high-performance cutting tools, engineered for superior material removal rates and exceptional surface finishes across diverse industrial applications.",
+    href: "/tools",
+    cta: "View Our Tools",
+  },
+  {
+    image: `${import.meta.env.BASE_URL}images/repair.jpeg`,
+    title: "CNC Machines Repair and Maintenance",
+    desc: "Expert CNC repair and maintenance solutions. We specialize in spindle restoration, electronic diagnostics, and mechanical precision checks to reduce downtime and optimize your manufacturing efficiency.",
     href: "/services",
     cta: "Our Services",
   },
   {
-    image: `${import.meta.env.BASE_URL}images/hero-3.png`,
-    title: "Preventive Maintenance",
-    desc: "Scheduled calibration, laser alignment, and comprehensive diagnostics to extend machine life.",
-    href: "/services",
-    cta: "Learn More",
+    image: `${import.meta.env.BASE_URL}images/turnkey.png`,
+    title: "Turnkey Solutions for CNC Machining",
+    desc: "Maximize your production throughput with our ready-to-run manufacturing systems. We provide seamless integration of advanced machinery, automated workholding, and optimized processes for B2B efficiency.",
+    href: "/turnkey-solutions",
+    cta: "Our Services",
   },
+  {
+    image: `${import.meta.env.BASE_URL}images/rectrofitting.png`,
+    title: "CNC Machine Retrofitting",
+    desc: "Comprehensive retrofitting services including modern CNC control system upgrades, mechanical rebuilds, and electrical system enhanced precision and extended machine life.",
+    href: "/services",
+    cta: "Our Services",
+  }
 ];
 
 const stats = [
@@ -85,13 +113,13 @@ export default function Home() {
   return (
     <div>
       {/* ── Hero Slider ── */}
-      <section className="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
+      <section className="relative h-[70vh] sm:h-[80vh] md:h-[88vh] min-h-[480px] w-full overflow-hidden">
         <div className="overflow-hidden h-full" ref={emblaRef}>
           <div className="flex h-full">
             {slides.map((slide, i) => (
               <div key={i} className="flex-[0_0_100%] min-w-0 relative h-full">
                 <img src={slide.image} alt={slide.title} className="absolute w-full h-full object-cover object-center" />
-                <div className="absolute inset-0 bg-navy/70" />
+                <div className="absolute inset-0 bg-navy/40" />
               </div>
             ))}
           </div>
@@ -111,16 +139,16 @@ export default function Home() {
                 <span className="inline-block bg-primary text-white text-xs font-bold uppercase tracking-widest px-3 py-1 mb-5">
                   {slides[selectedIndex].tag}
                 </span>
-                <h1 className="text-5xl md:text-6xl font-display font-bold text-white leading-tight mb-5">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight mb-4 sm:mb-5">
                   {slides[selectedIndex].title}
                 </h1>
-                <p className="text-lg text-white/75 mb-8 leading-relaxed">
+                <p className="text-sm sm:text-lg text-white/75 mb-6 sm:mb-8 leading-relaxed">
                   {slides[selectedIndex].subtitle}
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/machines">
+                  <Link href={slides[selectedIndex].actionLink}>
                     <button className="btn-orange rounded-sm flex items-center gap-2 text-sm uppercase tracking-wide font-bold">
-                      Explore Machines <ArrowRight className="w-4 h-4" />
+                      {slides[selectedIndex].actionText} <ArrowRight className="w-4 h-4" />
                     </button>
                   </Link>
                   <Link href="/contact">
@@ -170,7 +198,7 @@ export default function Home() {
                 Empowering Manufacturing with Cutting-Edge Technology
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-Precision Machine Tools LLC, based in Sharjah, is a team of experienced professionals dedicated to delivering reliable industrial and automation solutions. With over a decade of expertise, we provide innovative, practical, and customer-focused services to help businesses improve performance and productivity.              </p>
+                Precision Machine Tools LLC, based in Sharjah, is a team of experienced professionals dedicated to delivering reliable industrial and automation solutions. With over a decade of expertise, we provide innovative, practical, and customer-focused services to help businesses improve performance and productivity.              </p>
               {/* <p className="text-muted-foreground leading-relaxed mb-8">
                 Whether you are upgrading your facility or need urgent spindle repairs, our expert engineers ensure your production lines never stop.
               </p> */}
@@ -187,14 +215,14 @@ Precision Machine Tools LLC, based in Sharjah, is a team of experienced professi
                 </button>
               </Link>
             </div>
-            <div className="relative">
+            <div className="relative mt-8 lg:mt-0">
               <img
                 src={`${import.meta.env.BASE_URL}images/workshop.png`}
                 alt="Workshop"
                 className="rounded-sm shadow-xl w-full object-cover"
               />
-              <div className="absolute -bottom-6 -left-6 bg-navy text-white p-5 rounded-sm shadow-xl">
-                <div className="text-4xl font-display font-bold text-primary">5+</div>
+              <div className="absolute -bottom-4 left-0 sm:-bottom-6 sm:-left-6 bg-navy text-white p-4 sm:p-5 rounded-sm shadow-xl">
+                <div className="text-3xl sm:text-4xl font-display font-bold text-primary">5+</div>
                 <div className="text-xs font-bold uppercase tracking-wider text-white/70 mt-1">Years of Excellence</div>
               </div>
             </div>
@@ -215,10 +243,10 @@ Precision Machine Tools LLC, based in Sharjah, is a team of experienced professi
             {services.map((s) => (
               <div key={s.title} className="bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-border card-hover group">
                 <div className="h-48 overflow-hidden relative">
-                  <img 
-                    src={s.image} 
-                    alt={s.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 </div>

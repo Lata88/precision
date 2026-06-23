@@ -10,6 +10,7 @@ import About from "@/pages/about";
 import Machines from "@/pages/machines";
 import Tools from "@/pages/tools";
 import Services from "@/pages/services";
+import TurnkeySolutions from "@/pages/turnkey-solutions";
 import Gallery from "@/pages/gallery";
 import Contact from "@/pages/contact";
 import Admin from "@/pages/admin";
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/machines" component={Machines} />
         <Route path="/tools" component={Tools} />
         <Route path="/services" component={Services} />
+        <Route path="/turnkey-solutions" component={TurnkeySolutions} />
         <Route path="/gallery" component={Gallery} />
         <Route path="/contact" component={Contact} />
         <Route path="/admin" component={Admin} />

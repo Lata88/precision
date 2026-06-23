@@ -68,15 +68,17 @@ export interface CreateService {
 export interface GalleryImage {
   id: number;
   title: string;
-  imageUrl: string;
+  imageUrl?: string | null;
   category: string;
+  videoUrl?: string | null;
   createdAt: string;
 }
 
 export interface CreateGalleryImage {
   title: string;
-  imageUrl: string;
+  imageUrl?: string | null;
   category: string;
+  videoUrl?: string | null;
 }
 
 export interface ContactForm {

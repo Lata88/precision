@@ -4,22 +4,22 @@ const pillars = [
   {
     icon: Target,
     title: "Our Mission",
-    desc: "To deliver innovative and reliable solutions that drive our customer's performance and growth.",
+    desc: "To empower modern manufacturing by delivering innovative, high-precision machining solutions that drive unparalleled operational growth.",
   },
   {
     icon: Users,
     title: "Our Expertise",
-    desc: "5+ years of industry experience in machine and cutting tools sales and services, Turnkey Solutions with fixtures & tooling.",
+    desc: "A multidisciplinary team offering specialized turnkey solutions, advanced CNC machinery, and expert consultation tailored to your unique industrial needs.",
   },
   {
     icon: Award,
     title: "Our Commitment",
-    desc: "Quality, integrity, and customer satisfaction are at the core of everything we do.",
+    desc: "Unwavering dedication to uncompromising quality, transparent integrity, and ensuring complete customer satisfaction in every project we undertake.",
   },
   {
     icon: Handshake,
     title: "Our Promise",
-    desc: "Building long-term partnerships through trust, technology, and performance.",
+    desc: "To build enduring, value-driven partnerships anchored in mutual trust, relentless technological advancement, and consistent performance.",
   },
 ];
 
