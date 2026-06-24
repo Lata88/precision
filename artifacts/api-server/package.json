@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm exec tsx ./src/index.ts",
-    "build": "npm install -g pnpm && pnpm install",
+    "build": "tsx build.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
