@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
-Sitemap: https://pmtgulf.com
+Sitemap: https://www.pmtgulf.com/sitemap.xml
