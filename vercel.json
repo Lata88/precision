@@ -1,25 +1,13 @@
 {
-  "outputDirectory": "dist/public",
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml; charset=utf-8"
-        }
-      ]
-    }
-  ],
+  "outputDirectory": "public",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "source": "/api/:path*",
+      "destination": "https://precision-1-4uqo.onrender.com/api/:path*"
     },
     {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|api/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
 }
-
